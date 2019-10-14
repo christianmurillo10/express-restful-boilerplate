@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     'updated_at': {
       type: 'TIMESTAMP',
-      allowNull: false,
+      allowNull: true,
       defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
     },
     'is_deleted': {
