@@ -4,7 +4,7 @@ const bcrypt = require('../helpers/bcrypt-helper');
 module.exports = (sequelize, DataTypes) => {
   const Users = sequelize.define('Users', {
     'id': {
-      type: DataTypes.INTEGER(11).UNSIGNED,
+      type: DataTypes.INTEGER(11),
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
@@ -22,7 +22,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     'role_id': {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER(11),
+      references: {
+        model: 'Roles',
+        key: 'id'
+      },
       allowNull: false
     },
     'created_at': {
